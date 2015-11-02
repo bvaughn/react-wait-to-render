@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import TestUtils from 'react-addons-test-utils'
 import expect from 'expect.js'
-import WaitToRenderDecorator from '../source/WaitToRenderDecorator.jsx'
+import WaitToRender from '../source/WaitToRender.jsx'
 
-describe('WaitToRenderDecorator', () => {
+describe('WaitToRender', () => {
   var myTestComponentInitialized
 
   class MyTestComponent extends Component {
@@ -32,7 +32,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should not render a component if any properties are undefined', () => {
     TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         foo
         bar={undefined}
@@ -42,7 +42,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should pass through all props to rendered page once loading is finished', () => {
     const component = TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         foo
         bar={'string'}
@@ -55,7 +55,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should accept falsy values as loaded properties', () => {
     const component = TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         foo={false}
         bar={''}
@@ -68,7 +68,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should not render a component if :isLoading is false even if properties are all defined', () => {
     TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         isLoading
         foo
@@ -79,7 +79,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should render a component even if properties are undefined if :isLoading is false', () => {
     const component = TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         isLoading={false}
         foo={undefined}
@@ -93,7 +93,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should not render a loader if :isVisible is false', () => {
     const component = TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         isVisible={false}
         bar={undefined} />)
@@ -102,7 +102,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should not render the loaded component if :isVisible is false', () => {
     TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         isVisible={false}
         bar={123} />)
@@ -111,7 +111,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should render the loader if :isVisible is true', () => {
     const component = TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         wrappedComponent={MyTestComponent}
         isVisible
         bar={undefined} />)
@@ -120,7 +120,7 @@ describe('WaitToRenderDecorator', () => {
 
   it('should render the loaded component if :isVisible is true', () => {
     TestUtils.renderIntoDocument(
-      <WaitToRenderDecorator
+      <WaitToRender
         isVisible
         wrappedComponent={MyTestComponent}
         bar={123} />)

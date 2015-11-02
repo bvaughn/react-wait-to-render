@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import WaitToRenderDecorator from '../source/WaitToRenderDecorator.jsx'
 
 @WaitToRenderDecorator
-export default class DemoDecoratedComponent extends Component {
+export default class DemoDecoratedComponentWithCustomLoader extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired
   }

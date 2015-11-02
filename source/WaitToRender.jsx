@@ -16,12 +16,12 @@ import haveAllPropertiesLoaded from './haveAllPropertiesLoaded'
  * A loading graphic should not be shown for such components unless they're actually supposed to be visible.
  *
  * Usage example:
- * <WaitToRenderDecorator
+ * <WaitToRender
  *   wrappedComponent={SomeComponentClass}
  *   someRequiredProperty={...}
  *   anotherRequiredProperty={...} />
  */
-export default class WaitToRenderDecorator extends Component {
+export default class WaitToRender extends Component {
   shouldComponentUpdate = shouldPureComponentUpdate
 
   static propTypes = {

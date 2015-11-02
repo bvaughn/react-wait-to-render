@@ -5,7 +5,7 @@ import haveAllPropertiesLoaded from './haveAllPropertiesLoaded'
 
 /**
  * Decorates a component class so that instances of it will display a loading indicator until dependencies have pre-loaded.
- * See <WaitToRenderDecorator> documentation for more information on how the decorated component works.
+ * See <WaitToRender> documentation for more information on how the decorated component works.
  */
 export default function WaitToRenderDecorator (WrappedComponent) {
   const componentDisplayName = WrappedComponent.displayName || WrappedComponent.name || 'Component'

@@ -1,35 +1,35 @@
 import React, { Component } from 'react'
 import DemoComponent from './DemoComponent.jsx'
 import DemoDecoratedComponent from './DemoDecoratedComponent.jsx'
-import DemoDecoratedComponentCustomLoader from './DemoDecoratedComponent.CustomLoader.jsx'
+import DemoDecoratedComponentWithCustomLoader from './DemoDecoratedComponentWithCustomLoader.jsx'
 import Highlighter from './Highlighter.jsx'
-import WaitToRenderDecorator from '../source/WaitToRenderDecorator.jsx'
+import WaitToRender from '../source/WaitToRender.jsx'
 
-export default class WaitToRenderDecoratorDemo extends Component {
+export default class WaitToRenderDemo extends Component {
   render () {
     return (
       <div {...this.props}>
-        <h2>WaitToRenderDecorator</h2>
+        <h2>WaitToRender</h2>
         <p>
-          The <code>WaitToRenderDecorator</code> wrapper component can be used to defer loading of vanilla React components.
-          If a component requires at least one property, the <code>WaitToRenderDecorator</code> wrapper will wait to render it until that property has been defined.
+          The <code>WaitToRender</code> wrapper component can be used to defer loading of vanilla React components.
+          If a component requires at least one property, the <code>WaitToRender</code> wrapper will wait to render it until that property has been defined.
           Let's say we have a component that requires a <code>name</code> property string.
         </p>
         <Highlighter language='html'>
-          {`<WaitToRenderDecorator wrappedComponent={DemoComponent} name={undefined} />`}
+          {`<WaitToRender wrappedComponent={DemoComponent} name={undefined} />`}
         </Highlighter>
         <p>
           If we were to wrap that component and pass it a value of <code>undefined</code> (as shown above) we would see this:
         </p>
-        <WaitToRenderDecorator wrappedComponent={DemoComponent} name={undefined} />
+        <WaitToRender wrappedComponent={DemoComponent} name={undefined} />
         <Highlighter language='html'>
-          {`<WaitToRenderDecorator wrappedComponent={DemoComponent} name='Brian' />`}
+          {`<WaitToRender wrappedComponent={DemoComponent} name='Brian' />`}
         </Highlighter>
         <p>
           If we were to pass a truthy value (as shown above) then the actual component would be rendered:
         </p>
 
-        <WaitToRenderDecorator wrappedComponent={DemoComponent} name='Brian' />
+        <WaitToRender wrappedComponent={DemoComponent} name='Brian' />
         <h2>WaitToRenderDecorator</h2>
         <p>
           The above syntax can get a little clunky though.
@@ -53,28 +53,16 @@ class DemoDecoratedComponent extends Component {
 
         <p>
           Loading indicators for both the <code>WaitToRenderDecorator</code> wrapper and the <code>WaitToRenderDecorator</code> can be customized.
-          The simplest way of doing this is to specify a custom style for the <code>.LoadingIndicator</code> class like so:
-        </p>
-        <Highlighter language='css'>
-          {`.LoadingIndicator {
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #777;
-  color: #DDD;
-  font-style: italic;
-}`}
-        </Highlighter>
-        <p>
+          The simplest way of doing this is to specify a custom style for the <code>.LoadingIndicator</code> class.
           For even greater controler though you can specify your own loading component as an argument to the wrapper:
         </p>
         <Highlighter language='html'>
-          {`<WaitToRenderDecorator
+          {`<WaitToRender
   wrappedComponent={DemoComponent}
   loadingIndicator={customLoadingComponent}
   name={undefined} />`}
         </Highlighter>
-        <WaitToRenderDecorator
+        <WaitToRender
           wrappedComponent={DemoComponent}
           loadingIndicator={<div className='CustomLoadingIndicator'>Custom loading component...</div>}
           name={undefined} />
@@ -89,7 +77,7 @@ export default class DemoDecoratedComponent extends Component {
   // Your class goes here...
 }`}
         </Highlighter>
-        <DemoDecoratedComponentCustomLoader name={undefined} />
+        <DemoDecoratedComponentWithCustomLoader name={undefined} />
       </div>
     )
   }
