@@ -3,7 +3,7 @@
   "description": "A function, component and mixin to defer component rendering until all required props are present",
   "author": "Brian Vaughn",
   "user": "bvaughn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "start": "webpack-dev-server --port $PORT",
     "test": "karma start",
@@ -106,11 +106,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bvaughn/wait-to-render.git"
+    "url": "https://github.com/bvaughn/react-wait-to-render.git"
   },
-  "homepage": "https://github.com/bvaughn/wait-to-render/",
+  "homepage": "https://github.com/bvaughn/react-wait-to-render/",
   "bugs": {
-    "url": "https://github.com/bvaughn/wait-to-render/issues"
+    "url": "https://github.com/bvaughn/react-wait-to-render/issues"
   },
   "keywords": [
     "react",
